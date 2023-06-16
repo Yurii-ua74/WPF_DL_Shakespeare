@@ -1,0 +1,44 @@
+﻿<Window x:Class="WPF_DL_Shakespeare.HundredBooks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_DL_Shakespeare"
+        mc:Ignorable="d"
+        Title="HundredBooks" Height="450" Width="800" Closed="Window_Closed">
+    <Grid RenderTransformOrigin="0.502,0.497">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="51*" />
+            <RowDefinition Height="383*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="157*"/>
+            <ColumnDefinition Width="243*"/>
+        </Grid.ColumnDefinitions>
+        <Image Stretch="Fill" Source="/Sky.png" Grid.RowSpan="2" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <ListBox x:Name="lstBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,51,10,0" Grid.RowSpan="2"
+                 MouseDoubleClick="lstBox_MouseDoubleClick" Opacity="0.6"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Margin="45,10,31,10" CornerRadius="15">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Blue"/>
+                    <GradientStop Color="#FFECF707" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Button Grid.Column="1" Content="100 найпопулярніших книг з «Ґутенберґ»" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Height="31" Width="410" Background="Transparent" Foreground="#FFB2FF00" FontSize="16" Click="Button_Click"/>
+        </Border>
+        <ListBox x:Name="listBX" Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Opacity="0.6"/>
+        <Label Content="Подвійний клік" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top" Height="25" Width="101"/>
+    </Grid>
+</Window>
